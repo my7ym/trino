@@ -498,7 +498,7 @@ public class DefaultJdbcMetadata
                         .collect(toImmutableMap(Entry::getKey, entry -> newLeftColumns.get((JdbcColumnHandle) entry.getValue()))))
                 .putAll(rightAssignments.entrySet().stream()
                         .collect(toImmutableMap(Entry::getKey, entry -> newRightColumns.get((JdbcColumnHandle) entry.getValue()))))
-                .build();
+                .buildOrThrow();
 
         ImmutableList.Builder<ParameterizedExpression> joinConditions = ImmutableList.builder();
         for (ConnectorExpression conjunct : extractConjuncts(joinCondition)) {
