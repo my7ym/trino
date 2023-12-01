@@ -506,12 +506,12 @@ public class TestDefaultJdbcQueryBuilder
     }
 
     @Test
-    public void testBuildJoinSql()
+    public void testBuildJoinSqlLegacy()
             throws SQLException
     {
         Connection connection = database.getConnection();
 
-        PreparedQuery preparedQuery = queryBuilder.prepareJoinQuery(
+        PreparedQuery preparedQuery = queryBuilder.legacyPrepareJoinQuery(
                 jdbcClient,
                 SESSION,
                 connection,
